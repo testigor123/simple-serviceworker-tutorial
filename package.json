@@ -6,6 +6,9 @@
     "start": "http-server -c-1"
   },
   "devDependencies": {
-    "http-server": "0.8.5"
+    "http-server": "^0.8.5"
+  },
+  "dependencies": {
+    "http-server": "^0.8.5"
   }
 }

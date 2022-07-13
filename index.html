@@ -13,6 +13,10 @@
     <p>And now, some content added via JavaScript:</p>
     <script src="script.js"></script>
     <script>
+      chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
+          document.getElementsByTagName("h1")[0].innerText = basicContext.title;
+      });
+
       // Let's register our serviceworker
       navigator.serviceWorker.register('sw.js', {
         // The scope cannot be parent to the script url

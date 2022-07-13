@@ -2,6 +2,7 @@
   "name": "simple-serviceworker-tutorial",
   "private": true,
   "scripts": {
+    "heroku-postbuild": "npm install",
     "start": "http-server -c-1"
   },
   "devDependencies": {

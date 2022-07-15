@@ -40,6 +40,10 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
-  console.log("service worker javascript", basicContext);
-});
+console.log("service worker chrome", chrome);
+console.log("service worker chrome.edgePanel", chrome.edgePanel);
+if (chrome && chrome.edgePanel) {
+  chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
+    console.log("service worker javascript", basicContext);
+  });
+}

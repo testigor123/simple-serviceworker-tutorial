@@ -39,3 +39,7 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
+
+chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
+  console.log("service worker javascript", basicContext);
+});

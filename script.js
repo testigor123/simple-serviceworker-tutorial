@@ -7,8 +7,8 @@ chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
     document.getElementsByTagName("h1")[0].innerText = basicContext.title;
     var domain = basicContext.url.split("www.")[1].split("/")[0];
     var coupons = getCoupons(domain);
-    document.getElementsByTagName("h2")[0].innerText = `${domain} coupons: ${coupons.map(el=>el.couponCode).join(", ")}`;
-    chrome.edgeShoppingPrivate.notifyInShoreline(`${coupons.length} coupons found in ${domain}!`);
+    document.getElementsByTagName("h2")[0].innerText = `${coupons.length} coupons found for ${domain}: ${coupons.map(el=>el.couponCode).join(", ")}`;
+    chrome.edgeShoppingPrivate.notifyInShoreline(`${coupons.length} coupons found!`);
 });
 
 var getCoupons = (domain) => {

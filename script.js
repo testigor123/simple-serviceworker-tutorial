@@ -6,7 +6,9 @@ chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
     console.log("page javascript", basicContext);
     document.getElementsByTagName("h1")[0].innerText = basicContext.title;
     var domain = basicContext.url.split("www.")[1].split("/")[0];
-    console.log(getCoupons);
+    var coupons = getCoupons(domain);
+    console.log(coupons);
+    document.getElementsByTagName("h2")[0].innerText = coupons;
 });
 
 var getCoupons = (domain) => {

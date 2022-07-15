@@ -6,6 +6,9 @@ importScripts('serviceworker-cache-polyfill.js');
 // This only happens once, when the browser sees this
 // version of the ServiceWorker for the first time.
 self.addEventListener('install', function(event) {
+  console.log("service worker chrome", chrome);
+  console.log("service worker chrome.edgePanel", chrome.edgePanel);
+
   // We pass a promise to event.waitUntil to signal how 
   // long install takes, and if it failed
   event.waitUntil(

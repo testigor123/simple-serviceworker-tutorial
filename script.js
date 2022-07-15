@@ -1,14 +1,13 @@
-var p = document.createElement('p');
-p.textContent = 'This content was added via JavaScript!';
-document.body.appendChild(p);
+// var p = document.createElement('p');
+// p.textContent = 'This content was added via JavaScript!';
+// document.body.appendChild(p);
 
 chrome.edgePanel.basicPageContext.onUpdated.addListener((basicContext) => {
     console.log("page javascript", basicContext);
     document.getElementsByTagName("h1")[0].innerText = basicContext.title;
     var domain = basicContext.url.split("www.")[1].split("/")[0];
     var coupons = getCoupons(domain);
-    console.log(coupons);
-    document.getElementsByTagName("h2")[0].innerText = coupons;
+    document.getElementsByTagName("h2")[0].innerText = `${domain} coupons: ${coupons.map(el=>el.couponCode).join(", ")}`;
 });
 
 var getCoupons = (domain) => {
